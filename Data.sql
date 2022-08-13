@@ -41,6 +41,7 @@ CALL add_car('RAM', 'Tradesman', 'White', '2019', TRUE, 50998.00);
 CALL add_car('Lexus', 'RX 350', 'Black', '2021', TRUE, 59998.00);
 CALL add_car('Jeep', 'Compass Latitude', 'Red', '2019', FALSE, 29998.00);
 -- *************************************** Test add_service_ticket procedure ******************************
+-- car, customer
 CALL add_service_ticket(1,1,'2022-08-23','2022-08-25','Battery and oil fileter change');
 CALL add_service_ticket(2,5,'2022-08-23','2022-08-24','Change brake');
 CALL add_service_ticket(5,1,'2022-08-25','2022-08-26','Change sparks');
@@ -54,9 +55,13 @@ CALL add_service_mechanic(1,1,1,30.50,'Battery replacament: Changed and tested')
 CALL add_service_mechanic(1,2,1,20.99,'Oil fileter replacement: Changed and tested');
 CALL add_service_mechanic(5,3,2,35.00,'Break pad replacement: Changed and tested 4 of them');
 CALL add_service_mechanic(6,2,2,30.00,'Spark plug replacement: Changed and tested 4 of them'); 
-
-
-
+-- ***************************************** Test add_invoice procedure ***********************************
+-- customer, salesperson, car_id
+CALL add_invoice(1,3,1,'repair'); 
+CALL add_invoice(5,3,2,'repair');
+CALL add_invoice(1,5,5,'repair');
+CALL add_invoice(9,4,4,'sell');
+CALL add_invoice(11,5,3,'finance');
 
 
 

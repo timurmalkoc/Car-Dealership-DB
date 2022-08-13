@@ -160,6 +160,19 @@ BEGIN
 END
 $$;
 
+-- *****************************************  add_invoice **************************************************
+CREATE OR REPLACE PROCEDURE add_invoice(
+	customer_id integer,
+	salesperson_id integer,
+	car_serial_num integer,
+	invoice_type invoice_type)
+LANGUAGE plpgsql
+AS $$
+BEGIN 
+	INSERT INTO invoice(customer_id, salesperson_id, car_serial_num, invoice_type)
+	VALUES (customer_id, salesperson_id, car_serial_num, invoice_type);
+END
+$$;
 
 
 

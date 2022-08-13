@@ -80,7 +80,7 @@ CREATE TABLE invoice(
 	FOREIGN KEY(salesperson_id) REFERENCES salesperson(salesperson_id),
 	FOREIGN KEY(car_serial_num) REFERENCES car(car_serial_num)
 );
-
+ALTER TABLE invoice RENAME COLUMN sale_date TO invoice_date;
 
 -- ******************** Part Table **************************
 CREATE TABLE part(
