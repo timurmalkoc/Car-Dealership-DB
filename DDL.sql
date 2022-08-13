@@ -59,8 +59,8 @@ CREATE TABLE car(
 	new_old boolean,
 	value integer
 );
-
-
+ALTER TABLE car ALTER COLUMN value TYPE decimal(10,2);
+ALTER TABLE car ALTER COLUMN make_year TYPE varchar(4);
 -- create types for invoice
 CREATE TYPE invoice_type AS ENUM('sell', 'rent', 'finance', 'repair');
 
@@ -90,6 +90,8 @@ CREATE TABLE part(
 	purchase_price integer,
 	retail_price integer	
 );
+ALTER TABLE part ALTER COLUMN purchase_price TYPE decimal(5,2);
+ALTER TABLE part ALTER COLUMN retail_price TYPE decimal(5,2);
 
 -- ****************** Parts Used Table **********************
 CREATE TABLE parts_used(
@@ -100,6 +102,9 @@ CREATE TABLE parts_used(
 	description varchar(400),
 	FOREIGN KEY(part_id) REFERENCES part(part_id)
 );
+ALTER TABLE parts_used DROP COLUMN price;
+ALTER TABLE parts_used ADD COLUMN ticket_id integer NOT NULL;
+ALTER TABLE parts_used ADD FOREIGN KEY(ticket_id) REFERENCES service_ticket(ticket_id);
 
 
 -- ****************** Service Ticket Table *******************
@@ -114,8 +119,8 @@ CREATE TABLE service_ticket(
 	FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
 	FOREIGN KEY(parts_used_id) REFERENCES parts_used(parts_used_id) 
 );
-
-
+ALTER TABLE service_ticket DROP COLUMN parts_used_id;
+ALTER TABLE service_ticket ADD COLUMN issue varchar(400);
 -- ***************** Service Mechanics Table ********************
 CREATE TABLE sevice_mechanic(
 	service_mechanics_id SERIAL PRIMARY KEY,
@@ -128,7 +133,7 @@ CREATE TABLE sevice_mechanic(
 	FOREIGN KEY(mechanics_id) REFERENCES mechanics(mechanics_id)
 );
 
-
+ALTER TABLE sevice_mechanic ALTER COLUMN hourly_rate TYPE decimal(5,2);
 
 
 
