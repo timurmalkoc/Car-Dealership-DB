@@ -81,7 +81,8 @@ CREATE TABLE invoice(
 	FOREIGN KEY(car_serial_num) REFERENCES car(car_serial_num)
 );
 ALTER TABLE invoice RENAME COLUMN sale_date TO invoice_date;
-
+ALTER TABLE invoice ADD COLUMN ticket_id integer;
+ALTER TABLE invoice ADD FOREIGN KEY(ticket_id) REFERENCES service_ticket(ticket_id);
 -- ******************** Part Table **************************
 CREATE TABLE part(
 	part_id SERIAL PRIMARY KEY,

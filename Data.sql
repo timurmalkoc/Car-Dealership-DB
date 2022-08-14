@@ -56,7 +56,7 @@ CALL add_service_mechanic(1,2,1,20.99,'Oil fileter replacement: Changed and test
 CALL add_service_mechanic(5,3,2,35.00,'Break pad replacement: Changed and tested 4 of them');
 CALL add_service_mechanic(6,2,2,30.00,'Spark plug replacement: Changed and tested 4 of them'); 
 -- ***************************************** Test add_invoice procedure ***********************************
--- customer, salesperson, car_id
+-- customer, salesperson, car_id, (new update ticket_id if not null)
 CALL add_invoice(1,3,1,'repair'); 
 CALL add_invoice(5,3,2,'repair');
 CALL add_invoice(1,5,5,'repair');
